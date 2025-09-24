@@ -1,102 +1,238 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="d49IhECir53mR5CCSZli7GzvJmBCuvhE2nOS_1yQbmA" />
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Priceless Analytics — Data Engineering & Analytics</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<meta name="description" content="Priceless Analytics — professional data engineering, school & POS systems, Data systems that exceed your expectations.">
-<style>
-  :root{
-    --navy-root: #071629ff;        
-    --deep-navy: #07213b;
-    --card: #ffffff;
-    --muted: #6b7a8a;
-    --accent-gold: #ffb86b;
-    --accent-teal: #44c1a8;
-    --glass: rgba(255,255,255,0.6);
-    --shadow: 0 12px 36px rgba(6,18,36,0.08);
-    --radius: 14px;
-    --max-width: 1200px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Priceless Analytics — Data Engineering & Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Priceless Analytics — professional data engineering, school & POS systems, Data systems that exceed your expectations.">
 
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial;color:var(--deep-navy);background:#f6fbff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:var(--max-width);margin:0 auto;padding:0 1.15rem}
+  <!--
+    Priceless Analytics — Main stylesheet (embedded)
+    Purpose:
+      - Keep the original visual language you had
+      - Improve team image display (full image, no cropping)
+      - Add aesthetic shadows, rounded corners and hover interactions
+      - Make the layout responsive and consistent
+  -->
 
-  header{background:linear-gradient(180deg,var(--navy-root),#0a2546);color:white;padding:12px 0;position:sticky;top:0;z-index:80;box-shadow:0 6px 30px rgba(4,12,28,0.12)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-  .brand{display:flex;align-items:center;gap:0.9rem}
-  .logo img{width:54px;height:54px;border-radius:12px;object-fit:cover;box-shadow:0 12px 40px rgba(11,42,82,0.18);}
-  .brand h1{margin:0;font-size:1.05rem;letter-spacing:0.2px}
-  nav a{color:rgba(255,255,255,0.88);margin-left:1rem;font-weight:700;padding:8px 10px;border-radius:8px}
-  nav a.primary{background:linear-gradient(90deg,var(--accent-gold),#ff9f49);color:#07213b}
-  nav a:hover{opacity:0.95;transform:translateY(-1px)}
+  <style>
+    /* ============================================================
+       ROOT VARIABLES
+       ============================================================ */
+    :root{
+      --navy-root: #071629ff;
+      --deep-navy: #07213b;
+      --card: #ffffff;
+      --muted: #6b7a8a;
+      --accent-gold: #ffb86b;
+      --accent-teal: #44c1a8;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 12px 36px rgba(6,18,36,0.08);
+      --radius: 14px;
+      --max-width: 1200px;
+      --team-img-size-desktop: 300px;   /* target large, uncropped portrait area */
+      --team-img-size-tablet: 240px;
+      --team-img-size-mobile: 180px;
+    }
 
-  .hero{padding:64px 0 46px;background:
-    radial-gradient(800px 400px at 10% 10%, rgba(68,193,168,0.06), transparent 10%),
-    linear-gradient(180deg,#f6fbff,rgba(255,255,255,0));}
-  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
-  h2{font-size:2.2rem;margin:0;color:var(--deep-navy);line-height:1.04}
-  .lead{color:var(--muted);margin-top:10px;margin-bottom:18px;max-width:54ch}
-  .cta{display:flex;gap:12px;align-items:center}
-  .btn{padding:12px 18px;border-radius:12px;border:0;font-weight:800;cursor:pointer}
-  .btn.primary{background:linear-gradient(90deg,var(--accent-gold),#ff9f49);color:var(--deep-navy);box-shadow:0 14px 40px rgba(255,158,73,0.12)}
-  .btn.ghost{background:transparent;border:1px solid rgba(6,18,36,0.06);color:var(--deep-navy)}
+    /* ============================================================
+       BASE RESET & LAYOUT
+       ============================================================ */
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; margin:0; font-family:'Inter',system-ui,Segoe UI,Roboto,Arial; color:var(--deep-navy); background:#f6fbff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%;height:auto}
+    .container{ max-width:var(--max-width); margin:0 auto; padding:0 1.15rem; }
 
-  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-  .badge{background:var(--card);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--muted);box-shadow:var(--shadow);font-size:13px}
+    /* ============================================================
+       HEADER / NAV
+       ============================================================ */
+    header{ background:linear-gradient(180deg,var(--navy-root),#0a2546); color:white; padding:12px 0; position:sticky; top:0; z-index:80; box-shadow:0 6px 30px rgba(4,12,28,0.12); }
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand{ display:flex; align-items:center; gap:0.9rem; }
+    .logo img{ width:54px; height:54px; border-radius:12px; object-fit:cover; box-shadow:0 12px 40px rgba(11,42,82,0.18); }
+    .brand h1{ margin:0; font-size:1.05rem; letter-spacing:0.2px }
+    nav a{ color:rgba(255,255,255,0.88); margin-left:1rem; font-weight:700; padding:8px 10px; border-radius:8px; display:inline-block; }
+    nav a.primary{ background:linear-gradient(90deg,var(--accent-gold),#ff9f49); color:#07213b; }
+    nav a:hover{ opacity:0.95; transform:translateY(-1px); transition:transform .18s ease, opacity .18s ease; }
 
-  .snapshot{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-  .snapshot .num{font-weight:800;color:var(--navy-root);font-size:1.2rem}
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero{ padding:64px 0 46px; background:
+      radial-gradient(800px 400px at 10% 10%, rgba(68,193,168,0.06), transparent 10%),
+      linear-gradient(180deg,#f6fbff,rgba(255,255,255,0)); }
+    .hero-grid{ display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; }
+    h2{ font-size:2.2rem; margin:0; color:var(--deep-navy); line-height:1.04; }
+    .lead{ color:var(--muted); margin-top:10px; margin-bottom:18px; max-width:54ch }
+    .cta{ display:flex; gap:12px; align-items:center }
+    .btn{ padding:12px 18px; border-radius:12px; border:0; font-weight:800; cursor:pointer; }
+    .btn.primary{ background:linear-gradient(90deg,var(--accent-gold),#ff9f49); color:var(--deep-navy); box-shadow:0 14px 40px rgba(255,158,73,0.12); }
+    .btn.ghost{ background:transparent; border:1px solid rgba(6,18,36,0.06); color:var(--deep-navy); }
 
-  section{padding:40px 0}
-  h3{font-size:1.5rem;margin:0 0 14px;color:var(--deep-navy)}
-  .muted{color:var(--muted)}
+    /* badges */
+    .badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+    .badge{ background:var(--card); padding:8px 12px; border-radius:999px; font-weight:700; color:var(--muted); box-shadow:var(--shadow); font-size:13px; }
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:var(--shadow);transition:transform .28s ease,box-shadow .28s ease}
-  .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(6,18,36,0.12)}
-  .card img{border-radius:50%;width:80px;height:80px;object-fit:cover;margin:0 auto 12px;transition:transform 0.3s ease,box-shadow 0.3s ease}
-  .card img:hover{transform:scale(1.05);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+    /* snapshot */
+    .snapshot{ background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow); }
 
-  .mosaic{display:grid;grid-template-columns:2fr 1fr;gap:16px}
-  .mosaic .large{height:320px;border-radius:12px;padding:1.25rem;color:white;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
-  .mosaic .small{display:grid;grid-template-rows:1fr 1fr;gap:12px}
-  .project-card{border-radius:12px;padding:14px;color:white;height:150px;display:flex;flex-direction:column;justify-content:flex-end}
+    /* ============================================================
+       GLOBAL SECTION STYLES
+       ============================================================ */
+    section{ padding:40px 0; }
+    h3{ font-size:1.5rem; margin:0 0 14px; color:var(--deep-navy) }
+    .muted{ color:var(--muted) }
 
-  .case{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+    /* ============================================================
+       CARDS DEFAULT
+       ============================================================ */
+    .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:var(--shadow); transition:transform .28s ease,box-shadow .28s ease; text-align:center; }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 30px 60px rgba(6,18,36,0.12); }
 
-  .post{display:flex;gap:12px;align-items:flex-start}
+    /* ============================================================
+       TEAM — NEW (specific, not to conflict with other card images)
+       - Goal: show full image (no cropping), larger, aesthetic.
+       - Approach: place image inside a rounded "frame" (.team-img-wrap)
+         that provides consistent visual area while allowing the image
+         to be fully visible using object-fit: contain.
+       ============================================================ */
 
-  .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-  .field{display:flex;flex-direction:column;margin-bottom:10px}
-  input,textarea{padding:10px;border-radius:10px;border:1px solid rgba(6,18,36,0.06);font-size:15px}
-  textarea{min-height:140px;resize:vertical}
+    /* container grid for team */
+    .team-cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      align-items: start;
+      justify-items: center; /* center cards so image boxes align nicely */
+      margin-top: 16px;
+    }
 
-  footer{background:var(--deep-navy);color:white;padding:36px 0;margin-top:18px}
-  .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
-  .social a{display:inline-block;margin-right:8px;padding:8px;border-radius:8px;background:rgba(255,255,255,0.04);color:white}
+    /* individual team card (keeps visual style consistent) */
+    .team-card{
+      width:100%;
+      max-width: 420px;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+      transition: transform .28s ease, box-shadow .28s ease;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
 
-  @media (max-width:980px){
-    .hero-grid,.contact-grid{grid-template-columns:1fr}
-    .mosaic{grid-template-columns:1fr}
-    .case{grid-template-columns:1fr}
-    nav{display:none}
-  }
+    .team-card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(6,18,36,0.14);
+    }
 
-  .reveal{opacity:0;transform:translateY(10px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
-  .reveal.show{opacity:1;transform:none}
-</style>
+    /* THE IMAGE FRAME - ensures the full image is visible without cropping */
+    .team-img-wrap{
+      width: var(--team-img-size-desktop);
+      height: var(--team-img-size-desktop);
+      border-radius: 30px%;
+      padding: 9px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,249,255,0.9));
+      box-shadow: 0 10px 30px rgba(6,18,36,0.08), inset 0 2px 8px rgba(255,255,255,0.55);
+      transition: transform .28s ease, box-shadow .28s ease;
+      overflow: hidden; /* safe to hide overflow — image uses contain so no cropping */
+    }
+
+    /* image inside the frame — object-fit: contain ensures full image is shown */
+    .team-img-wrap img{
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;    /* key: preserves full image without cropping */
+      display:block;
+      border-radius: 30px;     /* slight rounding for image itself */
+      transition: transform .3s ease, filter .3s ease;
+      filter: saturate(1.03) contrast(1.02);
+    }
+
+    /* hover on the frame for subtle motion */
+    .team-img-wrap:hover{
+      transform: scale(1.03);
+      box-shadow: 0 18px 44px rgba(6,18,36,0.16);
+    }
+    .team-img-wrap:hover img{
+      transform: scale(1.02);
+    }
+
+    /* textual styling */
+    .team-name{ font-weight:800; font-size:1.05rem; color:var(--deep-navy); margin-top:4px; text-align:center; }
+    .team-role{ font-size:0.95rem; color:var(--muted); text-align:center; margin-top:4px; }
+
+    /* small decorative separator */
+    .team-sep{ width:48px; height:4px; border-radius:999px; background:linear-gradient(90deg,var(--accent-gold),var(--accent-teal)); margin:8px 0; }
+
+    /* ============================================================
+       PROJECTS / MOSAIC
+       ============================================================ */
+    .mosaic{ display:grid; grid-template-columns:2fr 1fr; gap:16px; }
+    .mosaic .large{ height:320px; border-radius:12px; padding:1.25rem; color:white; display:flex; flex-direction:column; justify-content:flex-end; box-shadow:var(--shadow) }
+    .mosaic .small{ display:grid; grid-template-rows:1fr 1fr; gap:12px }
+    .project-card{ border-radius:12px; padding:14px; color:white; height:150px; display:flex; flex-direction:column; justify-content:flex-end; }
+
+    /* ============================================================
+       CONTACT AREA
+       ============================================================ */
+    .contact-grid{ display:grid; grid-template-columns:1fr 360px; gap:20px }
+    .field{ display:flex; flex-direction:column; margin-bottom:10px }
+    input, textarea{ padding:10px; border-radius:10px; border:1px solid rgba(6,18,36,0.06); font-size:15px }
+    textarea{ min-height:140px; resize:vertical }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer{ background:var(--deep-navy); color:white; padding:36px 0; margin-top:18px }
+    .footer-grid{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between }
+    .social a{ display:inline-block; margin-right:8px; padding:8px; border-radius:8px; background:rgba(255,255,255,0.04); color:white }
+
+    /* ============================================================
+       RESPONSIVE ADJUSTMENTS
+       ============================================================ */
+    @media (max-width:1080px){
+      .hero-grid{ grid-template-columns: 1fr 360px; }
+      .team-img-wrap{ width: var(--team-img-size-tablet); height: var(--team-img-size-tablet); }
+    }
+
+    @media (max-width:980px){
+      .hero-grid, .contact-grid{ grid-template-columns: 1fr; }
+      .mosaic{ grid-template-columns:1fr; }
+      .case{ grid-template-columns:1fr; }
+      nav{ display:none; }
+      .team-img-wrap{ width: var(--team-img-size-tablet); height: var(--team-img-size-tablet); }
+    }
+
+    @media (max-width:520px){
+      .team-img-wrap{ width: var(--team-img-size-mobile); height: var(--team-img-size-mobile); }
+      .team-card{ padding:16px; }
+    }
+
+    /* ============================================================
+       REVEAL ANIMATION
+       ============================================================ */
+    .reveal{ opacity:0; transform:translateY(10px); transition: all .7s cubic-bezier(.2,.9,.2,1); }
+    .reveal.show{ opacity:1; transform:none; }
+  </style>
 </head>
+
 <body>
+  <!-- ============================
+       HEADER
+       ============================ -->
   <header>
     <div class="container nav-inner">
       <div class="brand">
         <div class="logo">
-          <img src="https://i.imgur.com/YourLogo.png" alt="Priceless Analytics Logo">
+          <img src="https://i.imgur.com/j5zbPXa.jpg" alt="Priceless Analytics Logo">
         </div>
         <div>
           <h1>Priceless Analytics</h1>
@@ -115,8 +251,12 @@
     </div>
   </header>
 
+  <!-- ============================
+       MAIN CONTENT
+       ============================ -->
   <main>
-    <!-- Hero -->
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -149,48 +289,66 @@
                 <div class="muted">Custom systems</div>
               </div>
             </div>
+
             <hr style="border:none;border-top:1px solid rgba(6,18,36,0.06);margin:12px 0">
+
             <div style="font-weight:700">Local expertise. Global standards.</div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Team -->
+    <!-- ============================
+         TEAM
+         Improved team images (no cropping, larger, aesthetic)
+         ===================================================== -->
     <section id="team" style="background:linear-gradient(180deg,#f9fdff,#ffffff)">
       <div class="container">
         <h3 class="reveal">Our Team</h3>
         <p class="muted reveal">The people behind Priceless Analytics — engineers, designers, and strategists.</p>
 
-        <div class="cards reveal" style="margin-top:16px">
+        <!-- Team grid: each card uses the new .team-img-wrap frame to show full images -->
+        <div class="team-cards reveal" style="margin-top:16px">
           <!-- Team Member 1 -->
-          <div class="card" style="text-align:center">
-            <img src="https://i.imgur.com/Member1.png" alt="Priceless M. Sheutang">
-            <div style="font-weight:800">Priceless M. Sheutang</div>
-            <div class="muted" style="font-size:14px">Founder · MS Access system developer</div>
-            <p class="muted" style="margin-top:10px;font-size:14px">Leads system architecture, school automation, and POS solutions.</p>
+          <div class="team-card">
+            <div class="team-img-wrap" aria-hidden="false">
+              <img src="https://i.imgur.com/cNDjSDT.jpeg" alt="Priceless M. Sheutang — Founder">
+            </div>
+            <div class="team-name">Priceless M. Sheutang</div>
+            <div class="team-role">Founder · MS Access system developer</div>
+            <div class="team-sep" aria-hidden="true"></div>
+            <div class="muted" style="font-size:14px; text-align:center; margin-top:8px">Leads system architecture, school automation, and POS solutions.</div>
           </div>
 
           <!-- Team Member 2 -->
-          <div class="card" style="text-align:center">
-            <img src="https://i.imgur.com/Member2.png" alt="Nchukie D. Divine">
-            <div style="font-weight:800">Nchukie D. Divine</div>
-            <div class="muted" style="font-size:14px">Systems Analyst</div>
-            <p class="muted" style="margin-top:10px;font-size:14px">Focuses on requirements gathering, system necessities, and process flows.</p>
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://i.imgur.com/c8QWy1r.jpg" alt="Nchukie D. Divine — Systems Analyst">
+            </div>
+            <div class="team-name">Nchukie D. Divine</div>
+            <div class="team-role">Systems Analyst</div>
+            <div class="team-sep" aria-hidden="true"></div>
+            <div class="muted" style="font-size:14px; text-align:center; margin-top:8px">Focuses on requirements gathering, system necessities, and process flows.</div>
           </div>
 
           <!-- Team Member 3 -->
-          <div class="card" style="text-align:center">
-            <img src="https://i.imgur.com/Member3.png" alt="Nchomba D Ntohnui">
-            <div style="font-weight:800">Nchomba D Ntohnui</div>
-            <div class="muted" style="font-size:14px">Formulae engineer & Director of Customer Service</div>
-            <p class="muted" style="margin-top:10px;font-size:14px">Responsible for engineering formulae at the heart of surgical data analysis.</p>
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://i.imgur.com/Member3.png" alt="Nchomba D Ntohnui — Formulae Engineer">
+            </div>
+            <div class="team-name">Nchomba D Ntohnui</div>
+            <div class="team-role">Formulae engineer & Director of Customer Service</div>
+            <div class="team-sep" aria-hidden="true"></div>
+            <div class="muted" style="font-size:14px; text-align:center; margin-top:8px">Responsible for engineering formulae at the heart of surgical data analysis.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ============================================================
+         ABOUT
+         (keeps original content and layout)
+         ============================================================ -->
     <section id="about" class="container">
       <h3 class="reveal">About Priceless Analytics</h3>
       <p class="muted reveal">We build data infrastructure and user-focused systems: school management, POS, inventory, and data pipelines. Our work prioritizes low maintenance, client perspective, and reliability.</p>
@@ -201,15 +359,25 @@
             <h4>Mission</h4>
             <p class="muted">Empower institutions with data systems that inform decisions. Minimal input, maximum output.</p>
           </div>
+
           <div class="card">
             <h4>Approach</h4>
             <p class="muted">Assess, design, build iteratively, and train local teams for long-term ownership.</p>
           </div>
         </div>
+
+        <aside class="reveal">
+          <div class="card">
+            <h4>Why Choose Us</h4>
+            <p class="muted">Local teams, offline-capable systems, and focus on maintainability mean solutions that last.</p>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
     <section id="services" style="background:linear-gradient(180deg,rgba(255,255,255,0.9),#f9fdff)">
       <div class="container">
         <h3 class="reveal">Services</h3>
@@ -220,19 +388,23 @@
             <h4>MS Access Based Data Systems</h4>
             <p class="muted">System conception, design, building, implementation and validation + automated structured data exports.</p>
           </div>
+
           <div class="card">
             <h4>School Management</h4>
             <p class="muted">Student records, grading automation, certificates, and fee workflows.</p>
           </div>
+
           <div class="card">
             <h4>POS & Inventory</h4>
             <p class="muted">Receipts, inventory sync, and reconciliation for small retailers.</p>
-          </div> 
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- ============================================================
+         PROJECTS
+         ============================================================ -->
     <section id="projects" class="container">
       <h3 class="reveal">Selected Projects</h3>
       <p class="muted reveal">Real results and measurable impact.</p>
@@ -244,11 +416,13 @@
             <div style="opacity:0.95;margin-top:8px">Offline-first MS Access platform used by 10+ schools to manage enrollment, student body and staff management.</div>
           </div>
         </div>
+
         <div class="small">
           <div class="project-card" style="background:linear-gradient(135deg,var(--accent-gold),#ffac5a);color:var(--deep-navy)">
             <div style="font-weight:800">Convenience Store POS</div>
             <div style="opacity:0.95">Real-time receipts, inventory, and full access to inventory info.</div>
           </div>
+
           <div class="card">
             <h4>Inventory for NGO</h4>
             <p class="muted">Procurement & stock tracking for humanitarian supplies.</p>
@@ -257,7 +431,9 @@
       </div>
     </section>
 
-    <!-- Insights -->
+    <!-- ============================================================
+         INSIGHTS
+         ============================================================ -->
     <section id="insights" class="container">
       <h3 class="reveal">Insights</h3>
       <p class="muted reveal">Short reads on systems design and real-world constraints.</p>
@@ -270,7 +446,9 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
     <section id="contact" class="container">
       <h3 class="reveal">Get in touch</h3>
       <div class="reveal contact-grid" style="margin-top:12px">
@@ -278,7 +456,8 @@
           <div class="field"><label for="name">Name</label><input id="name" required></div>
           <div class="field"><label for="email">Email</label><input id="email" type="email" required></div>
           <div class="field"><label for="message">Message</label><textarea id="message" required></textarea></div>
-          <div style="display:flex;gap:8px;align-items:center">
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
             <button class="btn primary" type="submit">Send Message</button>
             <button type="button" class="btn ghost" onclick="openWhatsApp()">WhatsApp</button>
             <div class="muted" style="font-size:13px">We typically reply within 48 hours.</div>
@@ -293,18 +472,24 @@
         </aside>
       </div>
     </section>
+
   </main>
 
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer>
     <div class="container footer-grid">
       <div>
         <div style="display:flex;gap:10px;align-items:center">
-          <div class="logo"><img src="https://i.imgur.com/YourLogo.png" alt="Priceless Analytics Logo" style="width:44px;height:44px;border-radius:10px;"></div>
+          <div class="logo"><img src="https://i.imgur.com/j5zbPXa.jpeg" alt="Priceless Analytics Logo" style="width:44px;height:44px;border-radius:10px;"></div>
+
           <div>
             <div style="font-weight:800;color:white">Priceless Analytics</div>
             <div style="color:rgba(255,255,255,0.7);font-size:13px">Data systems that work</div>
           </div>
         </div>
+
         <div style="color:rgba(255,255,255,0.75);margin-top:12px">© 2025 Priceless Analytics. All rights reserved.</div>
       </div>
 
@@ -313,7 +498,7 @@
         <div style="display:flex;flex-direction:column;gap:8px">
           <a href="#services" style="color:rgba(255,255,255,0.9)">Services</a>
           <a href="#projects" style="color:rgba(255,255,255,0.9)">Projects</a>
-          <a href="#team" style="color:rgba(255,255,255,0.9)">Team</a> 
+          <a href="#team" style="color:rgba(255,255,255,0.9)">Team</a>
           <a href="#insights" style="color:rgba(255,255,255,0.9)">Insights</a>
           <a href="#contact" style="color:rgba(255,255,255,0.9)">Contact</a>
         </div>
@@ -330,32 +515,64 @@
     </div>
   </footer>
 
-<script>
-  function scrollToId(id){ const el=document.getElementById(id); if(!el) window.scrollTo({top:0,behavior:'smooth'}); else el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  function openWhatsApp(){ 
-    const phone='+237671519072'; 
-    const text=encodeURIComponent('Hello Priceless Analytics — I would like to discuss a project.'); 
-    window.open('https://wa.me/'+phone.replace(/\D/g,'')+'?text='+text,'_blank'); 
-  }
-  function submitForm(e){
-    e.preventDefault();
-    const n=document.getElementById('name').value.trim(),
-          em=document.getElementById('email').value.trim(),
-          m=document.getElementById('message').value.trim();
-    if(!n||!em||!m){alert('Please complete the form.');return false}
-    const subj=encodeURIComponent('Website contact from '+n);
-    const body=encodeURIComponent('Name: '+n+'\nEmail: '+em+'\n\nMessage:\n'+m);
-    window.location.href='mailto:info@p-a.com?subject='+subj+'&body='+body;
-    return false;
-  }
-  function revealOnScroll(){ 
-    document.querySelectorAll('.reveal').forEach(el=>{
-      const r=el.getBoundingClientRect(); 
-      if(r.top<window.innerHeight-40){el.classList.add('show');}
-    })
-  }
-  window.addEventListener('scroll',revealOnScroll);
-  window.addEventListener('load',revealOnScroll);
-</script>
+  <!-- ============================================================
+       SCRIPTS
+       (form handling + reveal on scroll + helpers)
+       ============================================================ -->
+  <script>
+    // Smooth scroll helper
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) window.scrollTo({top:0,behavior:'smooth'});
+      else el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // Open WhatsApp window with prefilled message
+    function openWhatsApp(){
+      const phone = '+237671519072';
+      const text = encodeURIComponent('Hello Priceless Analytics — I would like to discuss a project.');
+      window.open('https://wa.me/'+phone.replace(/\D/g,'')+'?text='+text,'_blank');
+    }
+
+    // Simple contact form — triggers mail client with pre-filled email (keeps it light)
+    function submitForm(e){
+      e.preventDefault();
+      const n = document.getElementById('name').value.trim(),
+            em = document.getElementById('email').value.trim(),
+            m = document.getElementById('message').value.trim();
+
+      if(!n || !em || !m){
+        alert('Please complete the form.');
+        return false;
+      }
+
+      const subj = encodeURIComponent('Website contact from '+n);
+      const body = encodeURIComponent('Name: '+n+'\nEmail: '+em+'\n\nMessage:\n'+m);
+      window.location.href = 'mailto:info@p-a.com?subject='+subj+'&body='+body;
+      return false;
+    }
+
+    // Reveal on scroll (for the .reveal class)
+    function revealOnScroll(){
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const r = el.getBoundingClientRect();
+        if(r.top < window.innerHeight - 40){
+          el.classList.add('show');
+        }
+      });
+    }
+
+    // Initialize reveals on load and on scroll
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('scroll', revealOnScroll);
+
+    // small accessibility improvement: allow keyboard activation for team cards (optional)
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        // could add behavior later (e.g., open modal with bio)
+      }
+    });
+  </script>
+
 </body>
 </html>
