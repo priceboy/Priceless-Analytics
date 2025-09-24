@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Priceless Analytics — Data Engineering & Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Priceless Analytics — professional data engineering, school & POS systems, Data systems that exceed your expectations.">
+<style>
+  :root{
+    --navy-root: #071629ff;        
+    --deep-navy: #07213b;
+    --card: #ffffff;
+    --muted: #6b7a8a;
+    --accent-gold: #ffb86b;
+    --accent-teal: #44c1a8;
+    --glass: rgba(255,255,255,0.6);
+    --shadow: 0 12px 36px rgba(6,18,36,0.08);
+    --radius: 14px;
+    --max-width: 1200px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial;color:var(--deep-navy);background:#f6fbff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 1.15rem}
+
+  header{background:linear-gradient(180deg,var(--navy-root),#0a2546);color:white;padding:12px 0;position:sticky;top:0;z-index:80;box-shadow:0 6px 30px rgba(4,12,28,0.12)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{display:flex;align-items:center;gap:0.9rem}
+  .logo img{width:54px;height:54px;border-radius:12px;object-fit:cover;box-shadow:0 12px 40px rgba(11,42,82,0.18);}
+  .brand h1{margin:0;font-size:1.05rem;letter-spacing:0.2px}
+  nav a{color:rgba(255,255,255,0.88);margin-left:1rem;font-weight:700;padding:8px 10px;border-radius:8px}
+  nav a.primary{background:linear-gradient(90deg,var(--accent-gold),#ff9f49);color:#07213b}
+  nav a:hover{opacity:0.95;transform:translateY(-1px)}
+
+  .hero{padding:64px 0 46px;background:
+    radial-gradient(800px 400px at 10% 10%, rgba(68,193,168,0.06), transparent 10%),
+    linear-gradient(180deg,#f6fbff,rgba(255,255,255,0));}
+  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+  h2{font-size:2.2rem;margin:0;color:var(--deep-navy);line-height:1.04}
+  .lead{color:var(--muted);margin-top:10px;margin-bottom:18px;max-width:54ch}
+  .cta{display:flex;gap:12px;align-items:center}
+  .btn{padding:12px 18px;border-radius:12px;border:0;font-weight:800;cursor:pointer}
+  .btn.primary{background:linear-gradient(90deg,var(--accent-gold),#ff9f49);color:var(--deep-navy);box-shadow:0 14px 40px rgba(255,158,73,0.12)}
+  .btn.ghost{background:transparent;border:1px solid rgba(6,18,36,0.06);color:var(--deep-navy)}
+
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .badge{background:var(--card);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--muted);box-shadow:var(--shadow);font-size:13px}
+
+  .snapshot{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+  .snapshot .num{font-weight:800;color:var(--navy-root);font-size:1.2rem}
+
+  section{padding:40px 0}
+  h3{font-size:1.5rem;margin:0 0 14px;color:var(--deep-navy)}
+  .muted{color:var(--muted)}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:var(--shadow);transition:transform .28s ease,box-shadow .28s ease}
+  .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(6,18,36,0.12)}
+  .card img{border-radius:50%;width:80px;height:80px;object-fit:cover;margin:0 auto 12px;transition:transform 0.3s ease,box-shadow 0.3s ease}
+  .card img:hover{transform:scale(1.05);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+
+  .mosaic{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+  .mosaic .large{height:320px;border-radius:12px;padding:1.25rem;color:white;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
+  .mosaic .small{display:grid;grid-template-rows:1fr 1fr;gap:12px}
+  .project-card{border-radius:12px;padding:14px;color:white;height:150px;display:flex;flex-direction:column;justify-content:flex-end}
+
+  .case{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+
+  .post{display:flex;gap:12px;align-items:flex-start}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+  .field{display:flex;flex-direction:column;margin-bottom:10px}
+  input,textarea{padding:10px;border-radius:10px;border:1px solid rgba(6,18,36,0.06);font-size:15px}
+  textarea{min-height:140px;resize:vertical}
+
+  footer{background:var(--deep-navy);color:white;padding:36px 0;margin-top:18px}
+  .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+  .social a{display:inline-block;margin-right:8px;padding:8px;border-radius:8px;background:rgba(255,255,255,0.04);color:white}
+
+  @media (max-width:980px){
+    .hero-grid,.contact-grid{grid-template-columns:1fr}
+    .mosaic{grid-template-columns:1fr}
+    .case{grid-template-columns:1fr}
+    nav{display:none}
+  }
+
+  .reveal{opacity:0;transform:translateY(10px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="https://i.imgur.com/YourLogo.png" alt="Priceless Analytics Logo">
+        </div>
+        <div>
+          <h1>Priceless Analytics</h1>
+          <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-top:4px">Data Engineering · School Systems · Analytics</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact" class="primary">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h2 class="reveal">Data systems that power education, commerce, and community.</h2>
+          <p class="lead reveal muted">We design efficient, reliable, and ethical data solutions that scale from classrooms to national pilots. Built for low-bandwidth realities and maintained by local teams.</p>
+
+          <div class="cta reveal">
+            <button class="btn primary" onclick="scrollToId('contact')">Work with Us</button>
+            <button class="btn ghost" onclick="scrollToId('projects')">See Projects</button>
+          </div>
+
+          <div class="badges reveal" style="margin-top:14px">
+            <div class="badge">Fluid online and offline systems</div>
+            <div class="badge">MS Access and Excel analysis</div>
+            <div class="badge">Automated data exports</div>
+            <div class="badge">Full customer access to data</div>
+            <div class="badge">Data Ethics</div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="snapshot reveal">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="num">+12</div>
+                <div class="muted">Schools served</div>
+              </div>
+              <div style="text-align:right">
+                <div class="num">+20</div>
+                <div class="muted">Custom systems</div>
+              </div>
+            </div>
+            <hr style="border:none;border-top:1px solid rgba(6,18,36,0.06);margin:12px 0">
+            <div style="font-weight:700">Local expertise. Global standards.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" style="background:linear-gradient(180deg,#f9fdff,#ffffff)">
+      <div class="container">
+        <h3 class="reveal">Our Team</h3>
+        <p class="muted reveal">The people behind Priceless Analytics — engineers, designers, and strategists.</p>
+
+        <div class="cards reveal" style="margin-top:16px">
+          <!-- Team Member 1 -->
+          <div class="card" style="text-align:center">
+            <img src="https://i.imgur.com/Member1.png" alt="Priceless M. Sheutang">
+            <div style="font-weight:800">Priceless M. Sheutang</div>
+            <div class="muted" style="font-size:14px">Founder · MS Access system developer</div>
+            <p class="muted" style="margin-top:10px;font-size:14px">Leads system architecture, school automation, and POS solutions.</p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="card" style="text-align:center">
+            <img src="https://i.imgur.com/Member2.png" alt="Nchukie D. Divine">
+            <div style="font-weight:800">Nchukie D. Divine</div>
+            <div class="muted" style="font-size:14px">Systems Analyst</div>
+            <p class="muted" style="margin-top:10px;font-size:14px">Focuses on requirements gathering, system necessities, and process flows.</p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="card" style="text-align:center">
+            <img src="https://i.imgur.com/Member3.png" alt="Nchomba D Ntohnui">
+            <div style="font-weight:800">Nchomba D Ntohnui</div>
+            <div class="muted" style="font-size:14px">Formulae engineer & Director of Customer Service</div>
+            <p class="muted" style="margin-top:10px;font-size:14px">Responsible for engineering formulae at the heart of surgical data analysis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container">
+      <h3 class="reveal">About Priceless Analytics</h3>
+      <p class="muted reveal">We build data infrastructure and user-focused systems: school management, POS, inventory, and data pipelines. Our work prioritizes low maintenance, client perspective, and reliability.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:18px">
+        <div class="cards reveal">
+          <div class="card">
+            <h4>Mission</h4>
+            <p class="muted">Empower institutions with data systems that inform decisions. Minimal input, maximum output.</p>
+          </div>
+          <div class="card">
+            <h4>Approach</h4>
+            <p class="muted">Assess, design, build iteratively, and train local teams for long-term ownership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" style="background:linear-gradient(180deg,rgba(255,255,255,0.9),#f9fdff)">
+      <div class="container">
+        <h3 class="reveal">Services</h3>
+        <p class="muted reveal">End-to-end: design, implementation, training, and maintenance.</p>
+
+        <div style="margin-top:16px" class="cards reveal">
+          <div class="card">
+            <h4>MS Access Based Data Systems</h4>
+            <p class="muted">System conception, design, building, implementation and validation + automated structured data exports.</p>
+          </div>
+          <div class="card">
+            <h4>School Management</h4>
+            <p class="muted">Student records, grading automation, certificates, and fee workflows.</p>
+          </div>
+          <div class="card">
+            <h4>POS & Inventory</h4>
+            <p class="muted">Receipts, inventory sync, and reconciliation for small retailers.</p>
+          </div> 
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+      <h3 class="reveal">Selected Projects</h3>
+      <p class="muted reveal">Real results and measurable impact.</p>
+
+      <div class="mosaic reveal" style="margin-top:14px">
+        <div class="large" style="background:linear-gradient(135deg,var(--navy-root),#163a66)">
+          <div style="padding:18px">
+            <div style="font-weight:800;font-size:1.1rem">School Grading & Records</div>
+            <div style="opacity:0.95;margin-top:8px">Offline-first MS Access platform used by 10+ schools to manage enrollment, student body and staff management.</div>
+          </div>
+        </div>
+        <div class="small">
+          <div class="project-card" style="background:linear-gradient(135deg,var(--accent-gold),#ffac5a);color:var(--deep-navy)">
+            <div style="font-weight:800">Convenience Store POS</div>
+            <div style="opacity:0.95">Real-time receipts, inventory, and full access to inventory info.</div>
+          </div>
+          <div class="card">
+            <h4>Inventory for NGO</h4>
+            <p class="muted">Procurement & stock tracking for humanitarian supplies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section id="insights" class="container">
+      <h3 class="reveal">Insights</h3>
+      <p class="muted reveal">Short reads on systems design and real-world constraints.</p>
+
+      <div style="margin-top:12px" class="cards reveal">
+        <article class="card post">
+          <div style="font-weight:800">Designing Offline-First Systems</div>
+          <div class="muted" style="margin-top:6px">Strategies for reliable data workflows where connectivity is intermittent.</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h3 class="reveal">Get in touch</h3>
+      <div class="reveal contact-grid" style="margin-top:12px">
+        <form onsubmit="return submitForm(event)" class="card">
+          <div class="field"><label for="name">Name</label><input id="name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" required></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" required></textarea></div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn primary" type="submit">Send Message</button>
+            <button type="button" class="btn ghost" onclick="openWhatsApp()">WhatsApp</button>
+            <div class="muted" style="font-size:13px">We typically reply within 48 hours.</div>
+          </div>
+        </form>
+
+        <aside class="card">
+          <h4>Contact Info</h4>
+          <div class="muted">Priceless Analytics — Douala, Cameroon</div>
+          <div style="font-weight:800;margin-top:10px">📧 info@p-a.com</div>
+          <div style="font-weight:800;margin-top:6px">📱 +237 671519072</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="logo"><img src="https://i.imgur.com/YourLogo.png" alt="Priceless Analytics Logo" style="width:44px;height:44px;border-radius:10px;"></div>
+          <div>
+            <div style="font-weight:800;color:white">Priceless Analytics</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:13px">Data systems that work</div>
+          </div>
+        </div>
+        <div style="color:rgba(255,255,255,0.75);margin-top:12px">© 2025 Priceless Analytics. All rights reserved.</div>
+      </div>
+
+      <div style="min-width:160px">
+        <div style="font-weight:800;color:white;margin-bottom:8px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="#services" style="color:rgba(255,255,255,0.9)">Services</a>
+          <a href="#projects" style="color:rgba(255,255,255,0.9)">Projects</a>
+          <a href="#team" style="color:rgba(255,255,255,0.9)">Team</a> 
+          <a href="#insights" style="color:rgba(255,255,255,0.9)">Insights</a>
+          <a href="#contact" style="color:rgba(255,255,255,0.9)">Contact</a>
+        </div>
+      </div>
+
+      <div style="min-width:140px">
+        <div style="font-weight:800;color:white;margin-bottom:8px">Follow</div>
+        <div class="social">
+          <a href="#" aria-label="twitter">Twitter</a>
+          <a href="#" aria-label="linkedin">LinkedIn</a>
+          <a href="#" aria-label="github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  function scrollToId(id){ const el=document.getElementById(id); if(!el) window.scrollTo({top:0,behavior:'smooth'}); else el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  function openWhatsApp(){ 
+    const phone='+237671519072'; 
+    const text=encodeURIComponent('Hello Priceless Analytics — I would like to discuss a project.'); 
+    window.open('https://wa.me/'+phone.replace(/\D/g,'')+'?text='+text,'_blank'); 
+  }
+  function submitForm(e){
+    e.preventDefault();
+    const n=document.getElementById('name').value.trim(),
+          em=document.getElementById('email').value.trim(),
+          m=document.getElementById('message').value.trim();
+    if(!n||!em||!m){alert('Please complete the form.');return false}
+    const subj=encodeURIComponent('Website contact from '+n);
+    const body=encodeURIComponent('Name: '+n+'\nEmail: '+em+'\n\nMessage:\n'+m);
+    window.location.href='mailto:info@p-a.com?subject='+subj+'&body='+body;
+    return false;
+  }
+  function revealOnScroll(){ 
+    document.querySelectorAll('.reveal').forEach(el=>{
+      const r=el.getBoundingClientRect(); 
+      if(r.top<window.innerHeight-40){el.classList.add('show');}
+    })
+  }
+  window.addEventListener('scroll',revealOnScroll);
+  window.addEventListener('load',revealOnScroll);
+</script>
+</body>
+</html>
